@@ -1,0 +1,106 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "page.service_denm2",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		},
+		
+		  "dataSources": {
+    "invoiceRemote": {
+      "uri": "http://s4hana.sapanka.local:8000/sap/opu/odata/SAP/Z_AKTIVITE_FIORI_RAPOR_SRV/",
+      "type": "OData",
+      "settings": {
+        "odataVersion": "2.0"
+      }
+    }
+  }
+		
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "page.service_denm2.view.page",
+			"type": "JS",
+			"async": true,
+			"id": "page"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "page.service_denm2.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "JS",
+				"async": true,
+				"viewPath": "page.service_denm2.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [{
+				"name": "Routepage",
+				"pattern": "Routepage",
+				"target": ["Targetpage"]
+			}],
+			"targets": {
+				"Targetpage": {
+					"viewType": "JS",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "page",
+					"viewName": "page"
+				}
+			}
+		}
+	}
+}
